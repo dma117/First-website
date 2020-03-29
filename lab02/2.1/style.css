@@ -1,0 +1,159 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header, footer {
+    width: 100%;
+}
+
+aside, article, .rightBlock, footer {
+    float: left;
+}
+
+aside, .rightBlock {
+    width: 25%;
+}
+
+article {
+    width: 50%;
+}
+
+header {
+    border-bottom: 1px solid silver;
+    text-align: left;
+    padding-top: 0.1em;
+    padding-left: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+footer {
+    border-top: 1px solid silver;
+    color: #00FFFF;
+}
+
+body {
+    width: 100%;    
+    height: 100%;
+    background-image: url('../images/screen.png');
+    font-size: 1.2em;
+    font-family: cursive;
+    line-height: 135%;
+}
+
+audio, #img_Todrick, #video {
+    margin: 10px auto;
+}
+
+#img_Todrick {
+    height: 70%;
+    width: 70%;
+}
+
+#img_Foxford {
+    margin: 0 auto;
+}
+
+#img_Heart {
+    margin: 0 20px 10px 60px;
+}
+
+#img_Spotify {
+    height: 80%;
+    width: 80%;
+    margin: 10px 0 10px 40px;
+    display: block;
+}
+
+#music {
+    margin: 10px 0 10px 15px;
+}
+
+a {
+    color: pink;
+    text-decoration: none;
+    transition: all.6s ease;
+}
+
+a:hover {
+    color: rgb(214, 54, 219);
+    text-decoration: none;
+    transition: all.6s ease;
+}
+
+a:active {
+    color: #8ce4a6;
+}
+
+::selection {
+    background: #f8ed84; 
+    color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#video {
+    height: 100%;
+    width: 100%; 
+
+}
+
+#audio_center {
+    margin: 0 40px 0 160px;
+}
+
+.name {
+    font-size: 1.3em;
+    text-align: center;
+    padding-top: 1em;
+    color: blue;
+}
+
+#img_Face {
+    float: left;
+    width: 30%;
+    height: 20%;
+    margin: 15px 15px auto;
+}
+
+#poetry, #text_about_myself {
+    font-size: 0.8em;
+    line-height: 1.2em;
+    margin: 5px;
+}
+
+#text_about_myself {
+    padding: 0.4em 0.4em 0 0.6em;
+    color: rgb(47, 102, 255);
+    background-color: #FAFAFA;
+}
+
+p::before, ul {
+    content:"";
+    margin-left: 20px;
+}
+
+ul {
+    list-style-type: square;
+    list-style-position: outside;
+    color: navy;
+}
+
+#poetry {
+    text-align: center;
+    padding: 0.6em;
+    padding-bottom: 1.2em;
+    color: rgb(98, 241, 234);
+    
+}
+
+#Afanasii {
+    color: white;
+    font-size: 1em;
+    margin: auto 20px auto 400px;
+    line-height: 3.5em;
+}

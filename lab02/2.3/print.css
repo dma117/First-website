@@ -1,0 +1,15 @@
+@media print {
+    img, #img_Spotify, video, audio, nav {
+        display: none;
+    }
+
+    .body {
+        min-height: 300px;
+        min-width: 500px;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 1px;
+    }
+} 

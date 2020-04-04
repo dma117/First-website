@@ -159,3 +159,53 @@ p::before, ul {
     left: 55%;
     line-height: 3.5em;
 }
+
+/* Nav */
+
+.menu > ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.menu > ul li a {
+    background: white;
+    display: block;
+}
+
+.menu > ul li:first-child {
+    border-left: 1px solid #b2b3b5;
+}
+
+.menu > ul li:last-child {
+    border-right: 1px solid #b2b3b5;
+}
+
+.menu li a:hover {
+    background: #453547;
+    color: #fff;
+}
+
+.menu li ul {
+    position: absolute;
+    min-width: 175px;
+    display: none;
+}
+
+.menu li > ul li {
+    border: 1px solid #c7c8ca;
+}
+
+.menu li > ul li ul {
+    position: absolute;
+    right: -175px;
+    top: 0;
+}
+
+.menu li:hover > ul {
+    display: block;
+}
+
+.menu ul {
+    list-style: none;
+}

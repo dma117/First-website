@@ -1,0 +1,152 @@
+body {
+    background: #f5d9d5;
+    font-family: "Nunito", sans-serif;
+}
+
+.container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.blurb h2 {
+   color: #EA1C2C;
+   font-weight: 100;
+   font-size: 2.5rem;
+}
+
+.blurb p {
+    color: #f498b8;
+    font-weight: 100;
+    font-size: 1.125rem;
+    line-height: 2;
+}
+
+.content {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#mainNavbar {
+    background: rgb(245, 186, 245);
+    opacity: 2;
+    font-size: 1.5rem;
+    font-weight: 100;    
+}
+
+#mainNavbar .nav-link {
+    color: white;
+}
+
+#mainNavbar .nav-link:hover{
+    color: #EA1C2C;
+}
+
+#mainNavbar .dropdown-menu {
+    font-size: 1.5rem;
+    padding-top:0;
+    padding-bottom:0;
+    background-color: rgb(253, 213, 253);
+    border: 0px solid rgb(116, 10, 126);
+    border-radius: 0rem;
+}
+
+#mainNavbar .dropdown-item {
+    font-weight: 100;
+    color: rgb(240, 83, 214);
+    background-color: rgb(255, 203, 255);
+    border: 0;
+}
+
+#mainNavbar .dropdown-item:hover {
+    background-color: rgb(241, 157, 241, 0.5) !important;
+}
+
+#mainNavbar .dropdown-menu a {
+    /* color: rgb(240, 83, 214); */
+    color: white;
+}
+
+#mainNavbar .dropdown-menu a:hover {
+    color: #EA1C2C;
+}
+
+#mainNavbar .navbar-brand {
+    color: #EA1C2C;
+    font-size: 1.5rem;
+}
+
+#headingGroup span {
+    color: #EA1C2C;
+}
+
+#headingGroup h1 {
+    font-weight: 100;
+    font-size: 3.8rem;
+}
+
+@media (max-width: 1200px) {
+    #headingGroup h1 {
+        font-weight: 100;
+        font-size: 3rem;
+    }
+    .blurb h2 {
+        font-size: 2rem;
+    }
+}
+
+#shopCandies {
+    margin-top: 60px;
+}
+
+#shopCandies .carousel-inner {
+    max-height: 570px;
+}
+
+#shopCandies .carousel-caption {
+    margin-bottom: 200px;
+}
+
+.table-dark td, .table-dark th, .table-dark thead th {
+    border-color: rgb(243, 178, 58);
+    color: black;
+}
+
+#gallery .badge-danger,  .btn-danger:hover, .btn-danger {
+    background-color: #f573ba;
+}
+
+#footer .card-header {
+    background-color: rgba(218, 25, 73, 0.5);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+#footer .breadcrumb-item {
+    color: rgb(119, 16, 160);
+    font-size: 1.3rem;
+    font-weight: 100;
+}
+
+#footer .breadcrumb {
+    background: #f5d9d5;
+    margin-bottom: 0;
+}
+
+.card-footer {
+    padding: 0;
+    background-color: #f5d9d5;
+}
+
+#about .h1 {
+    color: purple;
+}
+
+.dropdown .dropdown:hover .dropdown-menu {
+    display:block;
+    left: 100%;
+    top: calc(0% - 5px);
+}

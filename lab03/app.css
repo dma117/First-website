@@ -48,9 +48,9 @@ body {
 
 #mainNavbar .dropdown-menu {
     font-size: 1.5rem;
-    padding-top:0;
-    padding-bottom:0;
-    background-color: rgb(253, 213, 253);
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: rgb(245, 186, 245);
     border: 0px solid rgb(116, 10, 126);
     border-radius: 0rem;
 }
@@ -58,22 +58,21 @@ body {
 #mainNavbar .dropdown-item {
     font-weight: 100;
     color: rgb(240, 83, 214);
-    background-color: rgb(255, 203, 255);
+    background-color: rgb(245, 186, 245);
     border: 0;
 }
 
 #mainNavbar .dropdown-item:hover {
-    background-color: rgb(241, 157, 241, 0.5) !important;
+    background-color: rgb(245, 186, 245) !important;
 }
 
 #mainNavbar .dropdown-menu a {
-    /* color: rgb(240, 83, 214); */
     color: white;
 }
 
 #mainNavbar .dropdown-menu a:hover {
     color: #EA1C2C;
-}
+} 
 
 #mainNavbar .navbar-brand {
     color: #EA1C2C;

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+        <div id="top">
+            <div id="rectangleSquare" style="width:70%;">
+                <div>
+                    <h3>Площадь квадрата</h3>
+                </div>
+                <div>
+                    <h4>Сторона квадрата:</h4>
+                    <input type="number" id="inputLen" value="143">
+                </div>
+                <div>
+                    <button type="button" onclick=checkDataReturnPow() style="margin-top: 20px; margin-bottom: 20px;">Посчитать</button>
+                </div>
+                <div>
+                    <input type="number" id="outputRecSquare">
+                </div>
+            </div>
+    
+            <section id="fibNumber" style="width:70%;">
+                <div>
+                    <h3>Поиск числа Фибоначчи</h3>
+                </div>
+                <div>
+                    <h4>Число (не больше 1000):</h4>
+                    <input type="number" id="inputNumber" value="10">
+                </div>
+                <div>
+                    <button type="button" onclick=checkDataReturnFib() style="margin-top: 20px; margin-bottom: 20px;">Посчитать</button>
+                </div>
+                <div>
+                    <input type="number" id="outputFib">
+                </div>
+            </section>
+        </div>
+    
+        <section id="magicRectangle">
+            <div>
+                <h3>Поиск магического квадрата</h3>
+            </div>
+            <div>
+                <h4>Задайте размер квадратной матрицы и введите значения:</h4>
+                <input type="number" id="number">
+            </div>
+            <div>
+                <button type="button" onclick=getMatrix() style="margin-top: 20px; margin-bottom: 20px;">Задать матрицу</button>
+            </div>
+            <center>
+                <div id="matrix" ></div>
+            </center>
+        </section>
+
+        <section id="array">
+            <div>
+                <h3>Генерация массива</h3>
+            </div>
+            <div>
+                <h4>Введите минимальное и максимальное значения:</h4>
+                <input type="number" id="min" value="-55">
+                <input type="number" id="max" value="156">
+            </div>
+            <div>
+                <h4>Введите размерность (n):</h4>
+                <input type="number" id="sizeArray" value="5">
+            </div>
+            <div>
+                <button type="button" onclick=checkDataReturnArray() style="margin-top: 20px; margin-bottom: 20px;">Сгенерировать матрицу</button>
+            </div>
+            <center>
+                <div id="table"></div>
+            </center>
+        </section>
+    </div>
+</body>
+</html>

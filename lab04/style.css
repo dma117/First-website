@@ -1,0 +1,44 @@
+html {
+    margin-right: 0;
+    margin-left: 0;
+    background: rgb(177, 255, 255);
+}
+
+#main {
+    margin-top: 0;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+}
+
+td, th {
+    border: 2px solid #0b0047;
+    background: white;
+}
+
+button {
+    background: rgb(141, 245, 188);
+    border-color: rgb(98, 219, 138);
+}
+
+#top {
+    display:flex; 
+}
+
+input {
+    font-size: 1em;
+    width: 150px;
+}
+
+.inputValue {
+    width: 100px;
+    margin: 3px;
+    border: 2px solid #0b0047;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1em;
+    text-align: center;
+}
+
+#magicRectangle, #array {
+    margin-top: 50px;
+}

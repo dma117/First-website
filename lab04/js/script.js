@@ -141,8 +141,7 @@ function checkDataReturnArray() {
                 for (j = 0; j < sizeArray; j++){
                     matrix[j][i] = sortedArray[index++];
                 }
-            }
-            if (i % 2 == 1){
+            } else {
                 for (j = sizeArray - 1; j >= 0; j--){
                     matrix[j][i] = sortedArray[index++];
                 }

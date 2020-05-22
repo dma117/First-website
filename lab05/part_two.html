@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h3>Классификация</h3>
+    <script>
+         var m = [
+            {
+                text: 'Животные',
+                childs: [
+                    {
+                        text: 'Другие',
+                        childs: [
+                            {
+                                text: 'Змеи'
+                            },
+                            {
+                                text: 'Птицы'
+                            },
+                            {
+                                text: 'Ящерицы'
+                            }
+                        ]
+                    },
+                    {
+                        text: 'Кошкообразные',
+                        childs: [
+                            {
+                                text: 'Нандиниевые',
+                                childs: [
+                                    {
+                                        text: 'Пальмовая циветта'
+                                    }
+                                ]
+                            },
+                            {
+                                text: 'Кошачьи',
+                                childs: [
+                                    {
+                                        text: 'Малые кошки'
+                                    },
+                                    {
+                                        text: 'Большие кошки'
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                text: 'Растения',
+                childs: [
+                    {
+                        text: 'Хвойные',
+                        childs: [
+                            {
+                                text: 'Кедр'
+                            },
+                            {
+                                text: 'Кипарис'
+                            },
+                            {
+                                text: 'Пихта'
+                            },
+                            {
+                                text: 'Лиственница'
+                            }
+                        ]
+                    },
+                    {
+                        text: 'Цветковые',
+                        childs: [
+                            {
+                                text: 'Вишня'
+                            },
+                            {
+                                text: 'Яблоня'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+
+        ///task 5.3
+        
+        var rootUL = $('<ul>');
+        rootUL.appendTo('body');
+
+        createChilds(m, rootUL);
+
+        function createChilds(m, rootUL){
+            for (item of m) {
+                let li = $('<li>');
+                
+                li.append(item.text);
+                rootUL.append(li);
+
+                if (item.childs) {
+                    let ul = $('<ul>');
+                    li.append(ul);
+                    createChilds(item.childs, ul);
+                } 
+            }
+        }
+
+        $('li').each(function() {
+            console.log(
+                $(this).contents()[0],
+                $(this).find('li').length
+            );
+        });
+
+        $('li').click(function(e) {
+            e.stopPropagation();
+            $(this).children().slideToggle("slow");
+        });   
+    </script>
+</body>
+</html>

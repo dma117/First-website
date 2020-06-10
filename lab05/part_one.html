@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h3>Классификация</h3>
     <script>
         var m = [
             {
@@ -88,6 +87,9 @@
                 ]
             }
         ]
+
+        var h3 = document.body.appendChild(document.createElement('h3'));
+        h3.innerText = "Классификация";
 
         ///task 5.1
         var rootUL = document.body.appendChild(document.createElement('ul'));

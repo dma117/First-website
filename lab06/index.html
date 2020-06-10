@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Canvas & Mootools</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.6.0/mootools-core.js"></script>
+	<script src="script.js"></script>
+	<style type="text/css">
+		canvas { border: 1px solid blue; }
+	</style>
+</head>
+<body onload="init();">
+	<canvas id="canvas" width="1260" height="500" onclick="goInput(event);">
+	</canvas>
+	<form>
+		<input type="button" value="Движение" onclick="setDirection()">
+		<input type="button" value="Стоп" onclick="clearInterval(idTimer);">
+		<div>
+			<input type="button" value="Вверх" onclick="setDirection(0)">
+			<input type="button" value="Вниз" onclick="setDirection(1)">
+			<input type="button" value="Влево" onclick="setDirection(2)">
+			<input type="button" value="Вправо" onclick="setDirection(3)">
+			<input type="button" value="Хаос" onclick="setDirection(4)">
+		</div>
+		<div>
+			<span>Скорость<span>
+			<input type="range" min="4" max="30" value="4" id="speed">
+			<output id="valueSpeed"></output>
+		</div>
+		<div>
+			<span>Размер для взрыва<span>
+			<input type="range" min="30" max="250" value="200" id="size">
+			<output id="valueSize"></output>
+		</div>
+	</form>
+</body>
+</html>

@@ -2,6 +2,8 @@
 
 var canvas, ctx, figures, idTimer, currentDirection, currentSpeed, maxSize;
 
+const DISNANCE = 9999999;
+
 const directions = [
     // top
     (x, y) => {
@@ -81,7 +83,7 @@ class Rectangle extends Figure {
         return [[x - radius / 2, y - radius / 2], 
                 [x + radius / 2, y - radius / 2],
                 [x + radius / 2, y + radius / 2],
-                [x - radius / 2, y - radius / 2]];
+                [x - radius / 2, y + radius / 2]];
     }
 }
 
@@ -129,7 +131,7 @@ function init(){
     canvas = document.getElementById('canvas');
     if (canvas.getContext) {
         currentSpeed = 4;
-        maxSize = 200;
+        maxSize = 50;
 
         document.getElementById("speed").addEventListener('change', setSpeed);
         document.getElementById("valueSpeed").innerHTML = currentSpeed;
@@ -147,7 +149,7 @@ function init(){
         }
     }
 }
-// создаем новый шарик по щелчку мыши, добавляем его в массив шариков и рисуем его
+// создаем новую фигуру по щелчку мыши, добавляем ее в массив фигур и рисуем ее
 function goInput(event){
     var x = event.clientX;
     var y = event.clientY;
@@ -156,13 +158,15 @@ function goInput(event){
     figures.push(item);
 }
 
-function moveFigures(){
-    //реализация движения шариков, находящихся в массиве figures
+function moveFigures() {
+    // реализация движения шариков, находящихся в массиве figures
     drawBack(ctx, '#202020', '#aaa', canvas.width, canvas.height);
+
     for (var i = 0; i < figures.length; i){
-        figures[i].radius++;
         
-        if (figures[i].size > maxSize) {
+        figures[i].radius += 0.25;
+
+        if (figures[i].radius > maxSize) {
             figures.splice(i, 1);
             continue;
         }
@@ -175,8 +179,9 @@ function moveFigures(){
             figures.splice(i,1);
         }
         else {
-            checkCollisions(figures[i]);
-            i++;
+            if (!checkCollisions(figures[i])) {
+                i++;
+            }
         }
     }
 }
@@ -202,77 +207,84 @@ function setMaxSize() {
 }
 
 function checkCollisions(figure) {
-    var dx,
-        dy,
-        distance;
-
     for (let i = 0; i < figures.length; i++) {
-        if (figure == figures[i]) {
+
+        if (figures[i] == figure) {
             continue;
-        } 
-        if (figure instanceof Ball && figures[i] instanceof Ball) {;
-            dx = figure.posX - figures[i].posX;
-            dy = figure.posY - figures[i].posY;
-            distance = Math.sqrt(dx * dx + dy * dy);
+        }
 
-            if (distance < figures[i].radius + figure.radius) {
-                figures.splice(i, 1);
+        let enemy = figures[i];
+
+        // Detect the collision between Ball and Ball
+        if (enemy instanceof Ball && figure instanceof Ball) {             
+            let dx = figure.posX - enemy.posX;
+            let dy = figure.posY - enemy.posY;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < figure.radius + enemy.radius) {
                 figures.splice(figures.indexOf(figure, 0), 1);
-                return;
+                figures.splice(figures.indexOf(enemy, 0), 1);
+                return true;
             }
-        } else if (!(figure instanceof Ball || figures[i] instanceof Ball)) {
-            let [firstFigurePoints, secondFigurePoints] = [figure.getPoints(), figures[i].getPoints()];
+            
+        }
+        // Detect the collision Rectangles or Triangles
+        else if (!(enemy instanceof Ball || figure instanceof Ball)) {
+            let [figurePoints, enemyPoints] = [figure.getPoints(), enemy.getPoints()];
 
-            for (let point of secondFigurePoints) {
-                if (pointInPoly(firstFigurePoints, point[0], point[1])) {
+            for (let point of enemyPoints) {
+                if (pointInPoly(figurePoints, point[0], point[1])) {
                     figures.splice(figures.indexOf(figure, 0), 1);
-                    figures.splice(figures.indexOf(figures[i], 0), 1);
-                    return;
+                    figures.splice(figures.indexOf(enemy, 0), 1);
+                    return true;
                 }
             }
+        // Detect the collision between Ball and an another shape
         } else {
             var ball,
                 shape;
 
-            if (figures[i] instanceof Ball) {
-                ball = figures[i];
+            if (enemy instanceof Ball) {
+                ball = enemy;
                 shape = figure;
             } else {
                 ball = figure;
-                shape = figures[i];
+                shape = enemy;
             }
-
+            
             var pointsOfShapes = shape.getPoints();
 
-            let distance = 9999999;
+let distance = DISNANCE;
             for (let i = 0; i < pointsOfShapes.length; i++) {
                 let dx = pointsOfShapes[i][0] - ball.posX;
                 let dy = pointsOfShapes[i][1] - ball.posY;
                 let tmpDistance = Math.sqrt(dx * dx + dy * dy);
                 distance = tmpDistance < distance ? tmpDistance : distance;
             }
-            if (ball.size >= distance || pointInPoly(pointsOfShapes, ball.posX, ball.posY)) {
+            if (ball.radius >= distance || pointInPoly(pointsOfShapes, ball.posX, ball.posY)) {
                 figures.splice(figures.indexOf(shape, 0), 1);
                 figures.splice(figures.indexOf(ball, 0), 1);
-                return;
+                return true;
             }
         }
     }
+    return false;
 }
 
 function pointInPoly(figurePoints, pointX, pointY)
 {
     let destroy = 0;
 
-    for (let i = 0, j = figurePoints.length - 1; i < figurePoints.length; j = i++)
-    {
+  for (let i = 0, j = figurePoints.length - 1; i < figurePoints.length; j = i++)
+  {
         if (((figurePoints[i][1] > pointY) != (figurePoints[j][1] > pointY)) && 
         (pointX < (figurePoints[j][0] - figurePoints[i][0]) * (pointY - figurePoints[i][1]) / 
         (figurePoints[j][1] - figurePoints[i][1]) + figurePoints[i][0]))
-        {
+    {
             destroy = !destroy;
-        }
     }
  
-    return destroy;
+  }
+ 
+  return destroy;
 }

@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Game</title>
 </head>
-<body onload="init()">
-    
+<body onload="startGame()">
+    <div id="results" align="center"></div>
+    <form class="buttons">
+		<input class="btn" type="button" value="Рестарт" onclick="restartGame()">
+        <input class="btn" type="button" value="Пауза" onclick="pauseGame()">
+        <input class="btn" type="button" value="Продолжить" onclick="setTimer()">
+        <input class="btn" type="button" value="Сменить игрока" onclick="changeUser()">
+        <input class="btn" type="button" value="Посмотреть таблицу результатов" onclick="showResults()">
+	</form>
 </body>
 </html>

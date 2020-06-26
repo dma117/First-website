@@ -8,13 +8,15 @@
     <title>Game</title>
 </head>
 <body onload="startGame()">
-    <div id="results" align="center"></div>
-    <form class="buttons">
-		<input class="btn" type="button" value="Рестарт" onclick="restartGame()">
-        <input class="btn" type="button" value="Пауза" onclick="pauseGame()">
-        <input class="btn" type="button" value="Продолжить" onclick="setTimer()">
-        <input class="btn" type="button" value="Сменить игрока" onclick="changeUser()">
-        <input class="btn" type="button" value="Посмотреть таблицу результатов" onclick="showResults()">
-	</form>
+    <div id="set_background">
+        <div id="results" align="center"></div>
+        <form class="buttons">
+            <input class="btn" type="button" value="Restart" onclick="restartGame()">
+            <input class="btn" type="button" value="Pause" onclick="pauseGame()">
+            <input class="btn" type="button" value="Continue" onclick="setTimer()">
+            <input class="btn" type="button" value="Change player" onclick="changeUser()">
+            <input class="btn" type="button" value="Show records!" onclick="showResults()">
+        </form>
+    </div>
 </body>
 </html>

@@ -17,3 +17,28 @@ canvas { border: 1px solid blue; }
     display: flex;
     margin: 3px;
 }
+
+table {
+    width: 30%;
+}
+  
+th, td {
+padding: 15px;
+text-align: center;
+
+}
+th {
+background-color: #4CAF50;
+color: white;
+}
+
+tr {
+    color: yellow;
+    background-color: rgb(165, 41, 41, 0.8);
+    font-size: 17px;
+}
+
+.background { 
+    background: url('/images/background2.png');
+    height: 600px;
+}
